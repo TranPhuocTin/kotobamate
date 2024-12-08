@@ -19,12 +19,21 @@ KotobaMate is a Flutter-based mobile application designed to help users learn Ja
 - Dart SDK
 - Android Studio or VS Code with Flutter extensions
 - A physical device or emulator for testing
+- Japanese language pack installed on your device (required for text-to-speech functionality)
+
+### Language Requirements
+
+For the text-to-speech feature to work properly:
+- Ensure Japanese language support is installed on your device
+- The device's text-to-speech engine must support Japanese (ja-JP)
+- If using Android, install Japanese language pack from device settings
+- If using iOS, ensure Japanese is available in Siri voices
 
 ### Installation
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/kotobamate.git
+git clone https://github.com/TranPhucTin/kotobamate.git
 ```
 
 2. Navigate to the project directory:
