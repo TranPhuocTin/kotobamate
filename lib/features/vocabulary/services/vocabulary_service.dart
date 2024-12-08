@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:http/http.dart' as http;
 import 'package:image_picker/image_picker.dart';
 import '../data/repositories/vocabulary_repository.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class VocabularyService {
   final picker = ImagePicker();
@@ -48,8 +49,8 @@ class VocabularyService {
   }
 
   Future<String?> sendImageToGemini(String imagePath) async {
-    final uri = Uri.parse(
-        'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=AIzaSyADYmcC6kD-J-Sd32eKV-K_NS4ef0fIM8Y');
+    final url = Uri.parse(
+      'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${dotenv.env['GEMINI_API_KEY']}');
 
     final bytes = await File(imagePath).readAsBytes();
     final base64Image = base64Encode(bytes);
@@ -92,7 +93,7 @@ Requirements:
     });
 
     final response = await http.post(
-      uri,
+      url,
       headers: {
         'Content-Type': 'application/json',
       },
